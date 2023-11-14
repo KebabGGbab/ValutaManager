@@ -1,0 +1,199 @@
+body{
+    background: linear-gradient(135deg, rgba(255,0,0,1) 0%, rgba(245,0,207,1) 50%, rgba(136,0,255,1) 100%);
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    font-family: 'Pangolin', cursive;
+}
+hr{
+    margin: 0px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.container-center{
+    justify-content: center;
+    margin: 0px 50px 30px;
+}
+#header{
+    width: 100%;
+    position: fixed;
+}
+.header-line{
+    height: 35px;
+    width: 100%;
+    padding-top: 15px;
+    background-color: black;
+}
+.header-navigation{
+    font-weight: 700;
+    color: white;
+    text-decoration: none;;
+    margin: 0px 15px;
+}
+.header-navigation:hover{
+    color: red;
+    transition: color 0.3s linear;
+}
+.valuta-converter{
+    display: flex;
+}
+#converter-block{
+    margin-left: 20px;
+}
+#calendar-container{
+    margin-top: 200px;
+    margin-bottom: 10px;
+    display: flex;
+}
+#text-calendar{
+    margin-top: 3px;
+    margin-right: 10px;
+}
+#calendar{
+    border-radius: 10px;
+    font-family: 'Pangolin', cursive;
+    height: 25px;
+    border: 0px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+#value-money{
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px grey;
+}
+.converter{
+    display: flex;
+    height: 35px;
+}
+.button-to-select-valuta-close{
+    font-family: 'Pangolin', cursive;;
+    font-weight: 600;
+    height: 35px;
+    width: 97px;
+}
+.button-to-select-valuta-close::after{
+    content: "\25BC";
+    padding-left: 5px;
+}
+.button-to-select-valuta-open{
+    font-family: 'Pangolin', cursive;
+    font-weight: 600;
+    height: 35px;
+    width: 97px;
+}
+.button-to-select-valuta-open::after{
+    content: "\25B2";
+    padding-left: 5px;
+}
+.input-value-money{
+    font-family: 'Pangolin', cursive;
+}
+.visible-path-select-valuta{
+    display: flex;
+}
+.menu-select-valuta{
+    overflow-y: scroll;
+    background-color: white;
+    display: none;
+    border: 1px solid grey;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    height: 493px;
+    width: 267px;
+}
+.search-code-name-valuta{
+    padding: 5px 10px;
+    height: 35px;
+}
+.input-search-valuta{
+    padding-left: 10px;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    font-family: 'Pangolin', cursive;
+}
+.element-menu-valuta{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+}
+.element-menu-valuta:hover{
+    background-color: darkgrey;
+}
+.valuta-code{
+    padding-left: 5px;
+}
+.valuta-name{
+    text-align: right;
+    width: 90%;
+    padding-right: 5px;
+    padding-left: 15px
+}
+#canvas-diagram-rate{
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px grey;
+}
+#valuta-today{
+    margin: 70px 20px 10px 100px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px grey;
+}
+#name-column-menu-valuta-main-header{
+    display: flex;
+}
+#valuta-digital-code-main-header{
+    width: 100px;
+    margin-right: 10px;
+}
+#valuta-letter-code-main-header{
+    width: 105px;
+    margin-right: 10px;
+}
+#valuta-name-main-header{
+    width: 320px;
+    margin-right: 10px;
+}
+.element-menu-valuta-main{
+    display: flex;
+    height: 25px;
+}
+.element-menu-valuta-main:hover{
+    background-color: rgb(209, 203, 203);
+}
+.valuta-digital-code-main{
+    width: 100px;
+    text-align: center;
+    padding-top: 3px;
+    margin-right: 10px;
+}
+.valuta-letter-code-main{
+    width: 105px;
+    text-align: center;
+    padding-top: 3px;
+    margin-right: 10px;
+}
+.valuta-name-main{
+    width: 320px;
+    padding-top: 3px;
+    margin-right: 10px;
+}
+.rate-main{
+    padding-top: 3px;
+    margin-right: 10px;
+}
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color: burlywood;
+}

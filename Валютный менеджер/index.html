@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+        <script src="calculation.js"></script>
+        <title>Валютный менеджер</title>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        
+            ym(94473451, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true
+            });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/94473451" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </head>
+    <body>
+        <div id="header">
+            <div class="header-line">
+                <div class="navigation container">
+                    <a class="header-navigation" href="#">ГЛАВНАЯ</a>
+                    <a class="header-navigation" href="#">О НАС</a>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div id="main">
+            <div class="valuta-converter">
+                <div id="converter-block">
+                    <div class="container-center">
+                        <div id="calendar-container">
+                            <span id="text-calendar">Конвертер валют по курсу Центрального банка на</span>
+                            <input type="date" name="Date" id="calendar">
+                        </div>
+                        <div id="value-money">
+                            <div class="converter container">
+                                <div class="select-valuta">
+                                    <div class="visible-path-select-valuta">
+                                        <input class="input-value-money" id="input-valuta-first" type="text" placeholder="Сумма">
+                                        <button class="button-to-select-valuta-close" id="button-select-valuta-first">ВЫБРАТЬ</button>
+                                    </div>
+                                    <div class="menu-select-valuta" id="menu-select-valuta-first" style="display: none;">
+                                        <div class="search-code-name-valuta">
+                                            <input class="input-search-valuta" id="input-search-valuta-first" type="text" placeholder="Поиск">
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">RUB</span>
+                                            <span class="valuta-name first-menu">Российский Рубль</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">USD</span>
+                                            <span class="valuta-name first-menu">Доллар США</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">EUR</span>
+                                            <span class="valuta-name first-menu">Евро</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">AUD</span>
+                                            <span class="valuta-name first-menu">Австралийский доллар</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">AZN</span>
+                                            <span class="valuta-name first-menu">Азербайджанский манат</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">AMD</span>
+                                            <span class="valuta-name first-menu">Армянских драмов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">BYN</span>
+                                            <span class="valuta-name first-menu">Белорусский рубль</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">BGN</span>
+                                            <span class="valuta-name first-menu">Болгарский лев</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">BRL</span>
+                                            <span class="valuta-name first-menu">Бразильский реал</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">HUF</span>
+                                            <span class="valuta-name first-menu">Венгерских форинтов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">KRW</span>
+                                            <span class="valuta-name first-menu">Вон Республики Корея</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">VND</span>
+                                            <span class="valuta-name first-menu">Вьетнамских донгов	</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">HKD</span>
+                                            <span class="valuta-name first-menu">Гонконгский доллар	</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">GEL</span>
+                                            <span class="valuta-name first-menu">Грузинский лари	</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">DKK</span>
+                                            <span class="valuta-name first-menu">Датская крона	</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">AED</span>
+                                            <span class="valuta-name first-menu">Дирхам ОАЭ</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">EGP</span>
+                                            <span class="valuta-name first-menu">Египетских фунтов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">INR</span>
+                                            <span class="valuta-name first-menu">Индийских рупий</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">IDR</span>
+                                            <span class="valuta-name first-menu">Индонезийских рупий</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">KZT</span>
+                                            <span class="valuta-name first-menu">Казахстанских тенге</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">CAD</span>
+                                            <span class="valuta-name first-menu">Канадский доллар</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">QAR</span>
+                                            <span class="valuta-name first-menu">Катарский риал</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">KGS</span>
+                                            <span class="valuta-name first-menu">Киргизских сомов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">CNY</span>
+                                            <span class="valuta-name first-menu">Китайский юань</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">MDL</span>
+                                            <span class="valuta-name first-menu">Молдавских леев</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">NZD</span>
+                                            <span class="valuta-name first-menu">Новозеландский доллар</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">TMT</span>
+                                            <span class="valuta-name first-menu">Новый туркменский манат</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">NOK</span>
+                                            <span class="valuta-name first-menu">Норвежских крон</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">PLN</span>
+                                            <span class="valuta-name first-menu">Польский злотый</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">RON</span>
+                                            <span class="valuta-name first-menu">Румынский лей</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">XDR</span>
+                                            <span class="valuta-name first-menu">СДР (специальные права заимствования)</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">RSD</span>
+                                            <span class="valuta-name first-menu">Сербских динаров</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">SGD</span>
+                                            <span class="valuta-name first-menu">Сингапурский доллар</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">TJS</span>
+                                            <span class="valuta-name first-menu">Таджикских сомони</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">THB</span>
+                                            <span class="valuta-name first-menu">Таиландских батов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">TRY</span>
+                                            <span class="valuta-name first-menu">Турецких лир</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">UZS</span>
+                                            <span class="valuta-name first-menu">Узбекских сумов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">UAH</span>
+                                            <span class="valuta-name first-menu">Украинских гривен</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">GBP</span>
+                                            <span class="valuta-name first-menu">Фунт стерлингов Соединенного королевства</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">CZK</span>
+                                            <span class="valuta-name first-menu">Чешских крон</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">SEK</span>
+                                            <span class="valuta-name first-menu">Шведских крон</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">CHF</span>
+                                            <span class="valuta-name first-menu">Швейцарский франк</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">ZAR</span>
+                                            <span class="valuta-name first-menu">Южноафриканских рэндов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta first-menu">
+                                            <span class="valuta-code first-menu">JPY</span>
+                                            <span class="valuta-name first-menu">Японских иен</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="button-valuta-swap">&#8644;</button>
+                                <div class="select-valuta">
+                                    <div class="visible-path-select-valuta">
+                                        <input class="input-value-money" id="input-valuta-second" type="text" placeholder="Итого">
+                                        <button class="button-to-select-valuta-close" id="button-select-valuta-second">ВЫБРАТЬ</button>
+                                    </div>
+                                    <div class="menu-select-valuta" id="menu-select-valuta-second" style="display: none;">
+                                        <div class="search-code-name-valuta">
+                                            <input class="input-search-valuta" id="input-search-valuta-second" type="text" placeholder="Поиск">
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">RUB</span>
+                                            <span class="valuta-name second-menu">Российский Рубль</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">USD</span>
+                                            <span class="valuta-name second-menu">Доллар США</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">EUR</span>
+                                            <span class="valuta-name second-menu">Евро</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">AUD</span>
+                                            <span class="valuta-name second-menu">Австралийский доллар</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">AZN</span>
+                                            <span class="valuta-name second-menu">Азербайджанский манат</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">AMD</span>
+                                            <span class="valuta-name second-menu">Армянских драмов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">BYN</span>
+                                            <span class="valuta-name second-menu">Белорусский рубль</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">BGN</span>
+                                            <span class="valuta-name second-menu">Болгарский лев</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">BRL</span>
+                                            <span class="valuta-name second-menu">Бразильский реал</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">HUF</span>
+                                            <span class="valuta-name second-menu">Венгерских форинтов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">KRW</span>
+                                            <span class="valuta-name second-menu">Вон Республики Корея</span>
+                                        </div>
+                                                                                <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">VND</span>
+                                            <span class="valuta-name second-menu">Вьетнамских донгов	</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">HKD</span>
+                                            <span class="valuta-name second-menu">Гонконгский доллар	</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">GEL</span>
+                                            <span class="valuta-name second-menu">Грузинский лари	</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">DKK</span>
+                                            <span class="valuta-name second-menu">Датская крона	</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">AED</span>
+                                            <span class="valuta-name second-menu">Дирхам ОАЭ</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">EGP</span>
+                                            <span class="valuta-name second-menu">Египетских фунтов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">INR</span>
+                                            <span class="valuta-name second-menu">Индийских рупий</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">IDR</span>
+                                            <span class="valuta-name second-menu">Индонезийских рупий</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">KZT</span>
+                                            <span class="valuta-name second-menu">Казахстанских тенге</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">CAD</span>
+                                            <span class="valuta-name second-menu">Канадский доллар</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">QAR</span>
+                                            <span class="valuta-name second-menu">Катарский риал</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">KGS</span>
+                                            <span class="valuta-name second-menu">Киргизских сомов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">CNY</span>
+                                            <span class="valuta-name second-menu">Китайский юань</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">MDL</span>
+                                            <span class="valuta-name second-menu">Молдавских леев</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">NZD</span>
+                                            <span class="valuta-name second-menu">Новозеландский доллар</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">TMT</span>
+                                            <span class="valuta-name second-menu">Новый туркменский манат</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">NOK</span>
+                                            <span class="valuta-name second-menu">Норвежских крон</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">PLN</span>
+                                            <span class="valuta-name second-menu">Польский злотый</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">RON</span>
+                                            <span class="valuta-name second-menu">Румынский лей</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">XDR</span>
+                                            <span class="valuta-name second-menu">СДР (специальные права заимствования)</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">RSD</span>
+                                            <span class="valuta-name second-menu">Сербских динаров</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">SGD</span>
+                                            <span class="valuta-name second-menu">Сингапурский доллар</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">TJS</span>
+                                            <span class="valuta-name second-menu">Таджикских сомони</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">THB</span>
+                                            <span class="valuta-name second-menu">Таиландских батов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">TRY</span>
+                                            <span class="valuta-name second-menu">Турецких лир</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">UZS</span>
+                                            <span class="valuta-name second-menu">Узбекских сумов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">UAH</span>
+                                            <span class="valuta-name second-menu">Украинских гривен</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">GBP</span>
+                                            <span class="valuta-name second-menu">Фунт стерлингов Соединенного королевства</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">CZK</span>
+                                            <span class="valuta-name second-menu">Чешских крон</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">SEK</span>
+                                            <span class="valuta-name second-menu">Шведских крон</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">CHF</span>
+                                            <span class="valuta-name second-menu">Швейцарский франк</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">ZAR</span>
+                                            <span class="valuta-name second-menu">Южноафриканских рэндов</span>
+                                        </div>
+                                        <hr>
+                                        <div class="element-menu-valuta second-menu">
+                                            <span class="valuta-code second-menu">JPY</span>
+                                            <span class="valuta-name second-menu">Японских иен</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-center">
+                        <div id="canvas-diagram-rate">
+                            <canvas id="my-chart-diagram" width="600px" height="400px"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div id="valuta-today">
+                    <div id="name-column-menu-valuta-main-header">
+                        <span id="valuta-digital-code-main-header">Цифровой код</span>
+                        <span id="valuta-letter-code-main-header">Буквенный код</span>
+                        <span id="valuta-name-main-header">Название валюты</span>
+                        <span id="rate-main-header">Курс к рублю</span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">784</span>
+                        <span class="valuta-letter-code-main">AED</span>
+                        <span class="valuta-name-main">Дирхам ОАЭ</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">051</span>
+                        <span class="valuta-letter-code-main">AMD</span>
+                        <span class="valuta-name-main">Армянских драмов</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">036</span>
+                        <span class="valuta-letter-code-main">AUD</span>
+                        <span class="valuta-name-main">Австралийский доллар</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">944</span>
+                        <span class="valuta-letter-code-main">AZN</span>
+                        <span class="valuta-name-main">Азербайджанский манат</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">975</span>
+                        <span class="valuta-letter-code-main">BGN</span>
+                        <span class="valuta-name-main">Болгарский лев</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">986</span>
+                        <span class="valuta-letter-code-main">BRL</span>
+                        <span class="valuta-name-main">Бразильский реал</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">933</span>
+                        <span class="valuta-letter-code-main">BYN</span>
+                        <span class="valuta-name-main">Белорусский рубль</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">124</span>
+                        <span class="valuta-letter-code-main">CAD</span>
+                        <span class="valuta-name-main">Канадский доллар</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">756</span>
+                        <span class="valuta-letter-code-main">CHF</span>
+                        <span class="valuta-name-main">Швейцарский франк</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">156</span>
+                        <span class="valuta-letter-code-main">CNY</span>
+                        <span class="valuta-name-main">Китайский юань</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">203</span>
+                        <span class="valuta-letter-code-main">CZK</span>
+                        <span class="valuta-name-main">Чешских крон</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">208</span>
+                        <span class="valuta-letter-code-main">DKK</span>
+                        <span class="valuta-name-main">Датская крона</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">818</span>
+                        <span class="valuta-letter-code-main">EGP</span>
+                        <span class="valuta-name-main">Египетских фунтов</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">978</span>
+                        <span class="valuta-letter-code-main">EUR</span>
+                        <span class="valuta-name-main">Евро</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">826</span>
+                        <span class="valuta-letter-code-main">GBP</span>
+                        <span class="valuta-name-main">Фунт стерлингов Соединенного королевства</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">981</span>
+                        <span class="valuta-letter-code-main">GEL</span>
+                        <span class="valuta-name-main">Грузинский лари</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">344</span>
+                        <span class="valuta-letter-code-main">HKD</span>
+                        <span class="valuta-name-main">Гонконгский доллар</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">348</span>
+                        <span class="valuta-letter-code-main">HUF</span>
+                        <span class="valuta-name-main">Венгерских форинтов</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">360</span>
+                        <span class="valuta-letter-code-main">IDR</span>
+                        <span class="valuta-name-main">Индонезийских рупий</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">356</span>
+                        <span class="valuta-letter-code-main">INR</span>
+                        <span class="valuta-name-main">Индийских рупий</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">392</span>
+                        <span class="valuta-letter-code-main">JPY</span>
+                        <span class="valuta-name-main">Японских иен</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">417</span>
+                        <span class="valuta-letter-code-main">KGS</span>
+                        <span class="valuta-name-main">Киргизских сомов</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">410</span>
+                        <span class="valuta-letter-code-main">KRW</span>
+                        <span class="valuta-name-main">Вон Республики Корея</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">398</span>
+                        <span class="valuta-letter-code-main">KZT</span>
+                        <span class="valuta-name-main">Казахстанских тенге</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">498</span>
+                        <span class="valuta-letter-code-main">MDL</span>
+                        <span class="valuta-name-main">Молдавских леев</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">578</span>
+                        <span class="valuta-letter-code-main">NOK</span>
+                        <span class="valuta-name-main">Норвежских крон</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">554</span>
+                        <span class="valuta-letter-code-main">NZD</span>
+                        <span class="valuta-name-main">Новозеландский доллар</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">985</span>
+                        <span class="valuta-letter-code-main">PLN</span>
+                        <span class="valuta-name-main">Польский злотый</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">634</span>
+                        <span class="valuta-letter-code-main">QAR</span>
+                        <span class="valuta-name-main">Катарский риал</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">946</span>
+                        <span class="valuta-letter-code-main">RON</span>
+                        <span class="valuta-name-main">Румынский лей</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">941</span>
+                        <span class="valuta-letter-code-main">RSD</span>
+                        <span class="valuta-name-main">Сербских динаров</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">752</span>
+                        <span class="valuta-letter-code-main">SEK</span>
+                        <span class="valuta-name-main">Шведских крон</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">702</span>
+                        <span class="valuta-letter-code-main">SGD</span>
+                        <span class="valuta-name-main">Сингапурский доллар</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">764</span>
+                        <span class="valuta-letter-code-main">THB</span>
+                        <span class="valuta-name-main">Таиландских батов</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">972</span>
+                        <span class="valuta-letter-code-main">TJS</span>
+                        <span class="valuta-name-main">Таджикских сомони</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">934</span>
+                        <span class="valuta-letter-code-main">TMT</span>
+                        <span class="valuta-name-main">Новый туркменский манат</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">949</span>
+                        <span class="valuta-letter-code-main">TRY</span>
+                        <span class="valuta-name-main">Турецких лир</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">980</span>
+                        <span class="valuta-letter-code-main">UAH</span>
+                        <span class="valuta-name-main">Украинских гривен</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">840</span>
+                        <span class="valuta-letter-code-main">USD</span>
+                        <span class="valuta-name-main">Доллар США</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">860</span>
+                        <span class="valuta-letter-code-main">UZS</span>
+                        <span class="valuta-name-main">Узбекских сумов</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">704</span>
+                        <span class="valuta-letter-code-main">VND</span>
+                        <span class="valuta-name-main">Вьетнамских донгов</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">960</span>
+                        <span class="valuta-letter-code-main">XDR</span>
+                        <span class="valuta-name-main">СДР (специальные права заимствования)</span>
+                        <span class="rate-main"></span>
+                    </div>
+                    <hr>
+                    <div class="element-menu-valuta-main">
+                        <span class="valuta-digital-code-main">710</span>
+                        <span class="valuta-letter-code-main">ZAR</span>
+                        <span class="valuta-name-main">Южноафриканских рэндов</span>
+                        <span class="rate-main"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer">
+            
+        </div>
+    </body>
+</html>
